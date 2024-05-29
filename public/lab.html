@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #090909;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #000000;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    resize: vertical; /* Allows the user to resize the textarea vertically but not horizontally */
+}
+
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        small {
+            display: block;
+            margin-top: 5px;
+            color: #666;
+        }
+    </style>
+   <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const form = document.querySelector('form');
+        const numberInput = document.getElementById('number');
+        const nameInput = document.getElementById('name');
+        const feePaidAmountInput = document.getElementById('Total-amount');
+        const yearNumberInput = document.getElementById('year-number');
+        const monthNumberInput = document.getElementById('month-number');
+
+        yearNumberInput.addEventListener('input', () => validateNumberInput(yearNumberInput));
+        monthNumberInput.addEventListener('input', () => validateNumberInput(monthNumberInput));
+        numberInput.addEventListener('input', () => validateNumberInput(numberInput));
+        nameInput.addEventListener('input', () => validateNameInput(nameInput));
+        feePaidAmountInput.addEventListener('input', () => validateNumberInput(feePaidAmountInput));
+
+        form.addEventListener('submit', (event) => {
+            if (!validateNumberInput(numberInput) || 
+                !validateNameInput(nameInput) ||
+                !validateNumberInput(feePaidAmountInput)) {
+                event.preventDefault();
+            }
+        });
+    });
+
+    function validateNumberInput(input) {
+        const value = input.value;
+        const regex = /^[0-9]*$/;
+        if (!regex.test(value)) {
+            input.setCustomValidity('Only numbers are allowed.');
+            input.reportValidity();
+            return false;
+        } else {
+            input.setCustomValidity('');
+            return true;
+        }
+    }
+
+    function validateNameInput(input) {
+        const value = input.value;
+        const regex = /^[A-Za-z ]+$/;
+        if (!regex.test(value)) {
+            input.setCustomValidity('Only letters are allowed.');
+            input.reportValidity();
+            return false;
+        } else {
+            input.setCustomValidity('');
+            return true;
+        }
+    }
+
+    function validateRegistrationNumber(input) {
+        const value = input.value;
+        const regex = /^[0-9]{10}$/;
+        if (!regex.test(value)) {
+            input.setCustomValidity('Registration Number must be exactly 10 digits.');
+            input.reportValidity();
+            return false;
+        } else {
+            input.setCustomValidity('');
+            return true;
+        }
+    }
+</script>
+</head>
+<body>
+    <div class="container">
+        <h2>Payment Form</h2>
+        <form action="/generate-pdf3" method="post">
+            <div class="form-group">
+                <label for="year-number">Year Note Order No</label>
+                <input type="text" id="year-number" name="year-number" required>
+            </div>
+            <div class="form-group">
+                <label for="month-number">Month Note Order No</label>
+                <input type="text" id="month-number" name="month-number" required>
+            </div>
+            <div class="form-group">
+                <label for="Reference">Reference</label>
+                <textarea id="Reference" name="Reference" rows="2" required></textarea>
+                <small>e.g., Fee Receipt Sl. No 10751</small>
+            </div>
+            <div class="form-group">
+                <label for="payment-type">Payment-Type</label>
+                <select id="payment-type" name="payment-type" required>
+                    <option value="Reimbursement">Reimbursement</option>
+                    <option value="Payment">Payment</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+        <div class="form-group">
+            <label for="Designation">Designation</label>
+            <select id="Designation" name="Designation" required>
+                <option value="Assisant Professor">Assisant Professor</option>
+                <option value="Associative Professor">Associative Professor</option>
+                <option value="Professor">Professor</option>
+                <option value="HOD">HOD</option>
+                <option value="Dean Academic">Dean Academic</option>
+                <option value="Dean Student Affairs">Dean Student Affairs</option>
+                <option value="Dean R&C">Dean R&C</option>
+                <option value="SAS Officer">SAS Officer</option>
+                <option value="Executive Engineer">Executive Engineer</option>
+                <option value="Assistant Registrar">Assistant Registrar</option>
+                <option value="Registrar">Registrar</option>
+                <option value="B. tech Student">B.Tech Student</option>
+                <option value="M. tech Student">M.Tech Student</option>
+                <option value="Phd Scholar">PhD Scholar</option>
+            </select>
+        </div>
+            <div class="form-group">
+                <label for="branch">Course</label>
+                <select id="branch" name="branch" required>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="Mech">Mech</option>
+                    <option value="Civil">Civil</option>
+                    <option value="EIE">EIE</option>
+                    <option value="S&H">S&H</option>
+                    <option value="Administration">Administration</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Items-Purchased-date">Items Purchased Date Date</label>
+                <input type="date" id="Items-Purchased-date" name="Items-Purchased-date" required>
+            </div>
+            <div class="form-group">
+                <label for="Purpose">Purpose</label>
+                <textarea id="Purpose" name="Purpose" rows="5" type="Purpose-text" required></textarea>
+                <small>e.g., defence seminar...</small>
+            </div>
+            <div class="form-group">
+                <label for="Total-amount">Amount</label>
+                <input type="text" id="Total-amount" name="Total-amount" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
