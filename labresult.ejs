@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .payment-form {
+            font-family: 'Times New Roman', Times, serif;
+            margin: -15px auto;
+            padding: 20px;
+            padding-bottom: 0px;
+            margin-right: 55px;
+            margin-bottom: -35px;
+            height: fit-content;
+        }
+
+        .Container {
+            flex-direction: row;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            height: fit-content;
+            margin: 0px auto;
+            border-radius: 5px;
+            display: flex;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .clg-logo {
+            max-width: 180px;
+            max-height: 100%;
+            border-right: 2px solid #000;
+        }
+
+        .image {
+            height: 150px;
+            width: 150px;
+            margin-right: 10px;
+            padding: 20px;
+        }
+
+        .payment-form__header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .payment-form__title {
+            font-size: 18px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 2px;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .payment-form__subtitle {
+            font-size: 18px;
+            color: #020202;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 2px;
+            font-weight: 500;
+            font-family: "Tiro Devanagari Hindi", serif;
+        }
+
+        .payment-form__body {
+            margin-bottom: 40px;
+        }
+
+        .payment-form__subject {
+            font-size: 18px;
+            margin-bottom: 0px;
+            text-decoration-line: underline;
+            margin-top: 0%;
+        }
+
+        .payment-form__paragraph {
+            font-size: 14px;
+            margin-bottom: 0px;
+            justify-content: space-between;
+            display: flex;
+            flex-direction: row;
+            max-width: 400px;
+            margin-top: 0px;
+            text-align: justify;
+        }
+
+        .payment-form__paragraph1 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            justify-content: space-between;
+            margin-top: 0px;
+            text-align: justify;
+        }
+
+        .payment-form__paragraph2 {
+            font-size: 17px;
+            justify-content: space-between;
+            margin-top: 0px;
+            text-align: justify;
+            font-weight: 400;
+        }
+
+        .payment-form__table {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            margin-left: 30px;
+        }
+
+        .payment-form__table-header {
+            background-color: #ffffff;
+        }
+
+        .payment-form__table-header-cell {
+            padding: 5px;
+            border: 1px solid #080808;
+            font-weight: bold;
+        }
+
+        .payment-form__table-body {
+            border: 1px solid #0c0c0c;
+        }
+
+        .payment-form__table-row {
+            height: 40px;
+        }
+
+        .payment-form__table-cell {
+            padding: 10px;
+            border: 1px solid #050505;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .payment-form__table-cell1 {
+            padding: 10px;
+            border: 1px solid #050505;
+            text-align: center;
+        }
+
+        .payment-form__approval {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            margin-top: 10px;
+            padding-right: 20px;
+            color: #000;
+        }
+
+        .payment-form__approval1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-right: 50px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            color: #000;
+        }
+
+        .payment-form__approval-text {
+            font-size: 20px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .payment-form__approval-sign {
+            display: block;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .payment-form__approval-sign1 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .payment-form__approval-sign2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .payment-form__approval-name {
+            font-size: 20px;
+            margin-bottom: -20px;
+        }
+
+        .payment-form__approval-position {
+            font-size: 20px;
+            color: #000;
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+
+        .ordered-list li {
+            margin-bottom: 10px;
+            margin-left: 30px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class='Container'>
+        <div class='clg-logo'>
+            <img src="/CLG-LOGO.png" alt="Description of the image" class='image' />
+        </div>
+        <form class="payment-form">
+            <div class="payment-form__header">
+                <h3 class="payment-form__subtitle">राष्ट्रीय प्रौद्योगिकी संस्थान नागालैंड</h3>
+                <h3 class="payment-form__title">NATIONAL INSTITUTE OF TECHNOLOGY NAGALAND</h3>
+                <h3 class="payment-form__title">Chumukedima, Nagaland-797 103</h3>
+            </div>
+            <div class="payment-form__body">
+                <h3 class="payment-form__subject">Submitted to Director</h3>
+                <div class="payment-form__approval1">
+                    <div>
+                        <p class="payment-form__paragraph2">
+                            NIT-N/ADMN/ACAD/2024/<%= orderData['month'] %>-<%= orderData['month-number'] %>/<%= orderData['year-number'] %>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="payment-form__paragraph2">
+                            Date: <%= orderData['today'] %>
+                        </p>
+                    </div>
+                </div>       
+                <p class="payment-form__paragraph1">
+                    Sub: NIT-N – <%= orderData['payment-type'] %> of Consumable Items Purchased for laboratory– Approval requested – regarding
+                </p>
+                <p class="payment-form__paragraph1">
+                    Ref: 1. <%= orderData['Reference'] %>
+                </p>
+                <p class="payment-form__paragraph1">
+                    <%= orderData.name %>, <%= orderData.Designation %>, <%= orderData.branch %> department, has submitted a request for refund for the <%= orderData['payment-type'] %> of Consumable Items purchased for <%= orderData.branch %> department Laboratory on <%= orderData['Items-Purchased-date'] %> for the purpose of <%= orderData['Purpose'] %>
+                <p class="payment-form__paragraph1">
+                        The amount payable towards Consumable items purchased amounts to Rs.<%= orderData['Total-amount'] %>/- (Rupees <%= orderData.amounttowords %> only) as per the
+                        details enclosed. Permission may kindly be granted to sanction and disburse the above said amount to the concerned
+                        Faculty mentioned above                
+                </p>
+                <div class="payment-form__paragraph1">
+                    <b>Hence it is submitted for approval,</b>
+                    <ol class="ordered-list" type="a">
+                        <li>
+                            Whether the payable amount of Rs.<%= orderData['Total-amount'] %>/- (Rupees <%= orderData.amounttowords %> only) shall be paid to the concerned <%= orderData.name %>, <%= orderData.Designation %>.
+                        </li>
+                        <li>
+                            Whether the above amount may be paid from IRG NIT Nagaland (Account No.35747839287 / NIT-N Funds (Account No.32201262075 / 10682201001)
+                        </li>
+                    </ol>
+                    <p class="payment-form__approval-text">'a' & 'b' for kind approval please.</p>
+                </div>
+                <div class="payment-form__approval-sign1">
+                    <p class="payment-form__approval-name">(Pappu Kumar Sharma)</p>
+                    <p class="payment-form__approval-position">Superintendent (Acad)</p>
+                </div>
+                <div class="payment-form__approval">   
+                    <div class="payment-form__approval-sign">
+                        <p class="payment-form__approval-position">Assistant Registrar</p>
+                    </div>
+                    <div class="payment-form__approval-sign">
+                        <p class="payment-form__approval-position">Registrar</p>
+                    </div>
+                </div>
+                <div class="payment-form__approval-sign2">
+                    <p class="payment-form__approval-position">Director</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
